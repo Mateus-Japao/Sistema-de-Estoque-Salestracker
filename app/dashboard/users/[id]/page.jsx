@@ -29,3 +29,5 @@ const SingleUserPage = () => {
         </div>
     )
 }
+export default SingleUserPage
+
