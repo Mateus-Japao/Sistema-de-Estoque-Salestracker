@@ -1,3 +1,4 @@
+
 import Pagination from '../../ui/dashboard/pagination/pagination'
 import Search from '../../ui/dashboard/search/search'
 import styles from '../../ui/dashboard/users/users.module.css'
@@ -41,7 +42,7 @@ const UsersPage = () => {
             <td>active</td>
             <td>
               <div className={styles.buttons}>
-                <Link href="/">
+                <Link href="/dasboard/users/test">
                   <button className={` ${styles.button} ${styles.view}`}>View</button>
                 </Link>
                 <button className={` ${styles.button} ${styles.delete}`}>Delete</button>

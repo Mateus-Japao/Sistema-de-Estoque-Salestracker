@@ -3,7 +3,7 @@ const addProductsPage = () => {
     return (
         <div className={Styles.container}>
             <form action="" className={Styles.form}>
-                <input type="text" placeholder='username' name='username' require />
+                <input type="text" placeholder='Username' name='username' require />
                 <input type="email" placeholder='email' name='email' require />
                 <input type="password" placeholder='password' name='password' require />
                 <select name="isAdmin" id="isAdmin">
