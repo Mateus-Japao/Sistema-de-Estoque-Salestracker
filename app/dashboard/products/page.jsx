@@ -1,9 +1,9 @@
 
 import Image from "next/image"
-import Link from "next/link"
 import styles from "../../ui/dashboard/products/products.module.css"
 import Search from "../../ui/dashboard/search/search"
 import Pagination from "../../ui/dashboard/pagination/pagination"
+import Link from "next/link"
 
 const Products = () => {
     return (
@@ -42,7 +42,7 @@ const Products = () => {
             <td>99</td>
             <td>
               <div className={styles.buttons}>
-                <Link href="/">
+                <Link href="/dashboard/users/test">
                   <button className={` ${styles.button} ${styles.view}`}>View</button>
                 </Link>
                 <button className={` ${styles.button} ${styles.delete}`}>Delete</button>
