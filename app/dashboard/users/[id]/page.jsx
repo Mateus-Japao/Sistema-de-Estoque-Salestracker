@@ -6,13 +6,14 @@ const SingleUserPage = () => {
         <div className={styles.container}>
             <div className={styles.infoContainer}>
                 <div className={styles.imgContainer}>
-                    <Image src="/avatar.png" alt="" fill />
+                    <Image src="/noavatar.png" alt="" fill />
                 </div>
                 <div>
                     Mateus Felipe
                 </div>
             </div>
-            <div className={styles.container}>
+            <div className={styles.formContainer}>
+                <form action="" className={styles.form}>
                 <label> Username</label>
                 <input type="text" name="username" placeholder="Mateus Felipe" />
                 <label> Email</label>
@@ -25,6 +26,8 @@ const SingleUserPage = () => {
                     <option value={true}>Yes</option>
                     <option value={false}>No</option>
                 </select>
+                <button>Update</button>
+                </form>
             </div>
         </div>
     )
