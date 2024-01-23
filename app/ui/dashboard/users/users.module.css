@@ -16,7 +16,7 @@
     color: var(--textSoft);
     border: none;
     border-radius: 5px;
-    cursor: pointer '';
+    cursor: pointer ;
 }
 .table{
     padding: 20px;
