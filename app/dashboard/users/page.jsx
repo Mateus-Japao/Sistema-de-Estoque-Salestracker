@@ -1,10 +1,10 @@
-import { deleteUser, deleteusers } from '../../../lib/actions'
-import { fetchUsers } from '../../../lib/data'
-import Pagination from '../../ui/dashboard/pagination/pagination'
-import Search from '../../ui/dashboard/search/search'
-import styles from '../../ui/dashboard/users/users.module.css'
-import Image from 'next/image'
-import Link from 'next/link'
+import { deleteUser, deleteusers } from "../../../lib/actions";
+import { fetchUsers } from "../../../lib/data";
+import Pagination from "../../ui/dashboard/pagination/pagination";
+import Search from "../../ui/dashboard/search/search";
+import styles from "../../ui/dashboard/users/users.module.css";
+import Image from "next/image";
+import Link from "next/link";
 
 const UsersPage = async ({ searchParams }) => {
   const q = searchParams?.q || "";
@@ -14,7 +14,7 @@ const UsersPage = async ({ searchParams }) => {
     <div className={styles.container}>
       <div className={styles.top}>
         <Search placeholder="Search for a user..." />
-        <Link href='./users/add'>
+        <Link href="./users/add">
           <button className={styles.addButton}>Add New</button>
         </Link>
       </div>
@@ -30,16 +30,20 @@ const UsersPage = async ({ searchParams }) => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) =>
+          {users.map((user) => (
             <tr key={user.id}>
-              <td> <div className={styles.user}>
-                <Image src={user.img || "/noavatar.png"}
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage} />
-                {user.username}
-              </div>
+              <td>
+                {" "}
+                <div className={styles.user}>
+                  <Image
+                    src={user.img || "/noavatar.png"}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className={styles.userImage}
+                  />
+                  {user.username}
+                </div>
               </td>
               <td>{user.email}</td>
               <td>{user.createdAt?.toString().slice(4, 16) || "no date"}</td>
@@ -48,21 +52,25 @@ const UsersPage = async ({ searchParams }) => {
               <td>
                 <div className={styles.buttons}>
                   <Link href={`/dashboard/users/${user.id}`}>
-                    <button className={` ${styles.button} ${styles.view}`}>View</button>
+                    <button className={` ${styles.button} ${styles.view}`}>
+                      View
+                    </button>
                   </Link>
                   <form action={deleteUser}>
                     <input type="hidden" name="id" value={user.id} />
-                    <button className={` ${styles.button} ${styles.delete}`}>Delete</button>
+                    <button className={` ${styles.button} ${styles.delete}`}>
+                      Delete
+                    </button>
                   </form>
                 </div>
               </td>
             </tr>
-          )}
+          ))}
         </tbody>
       </table>
       <Pagination count={count} />
     </div>
-  )
-}
+  );
+};
 
-export default UsersPage
+export default UsersPage;

@@ -1,27 +1,25 @@
-import Card from '../ui/dashboard/card/card'
-import styles from '../ui/dashboard/dashboard.module.css'
-import Transactions from '../ui/dashboard/transactions/transactions'
-import Chart from '../ui/dashboard/chart/chart'
+import Card from "../ui/dashboard/card/card";
+import styles from "../ui/dashboard/dashboard.module.css";
+import Transactions from "../ui/dashboard/transactions/transactions";
+import Chart from "../ui/dashboard/chart/chart";
 
 const Dashboard = () => {
-    return (
-      <div>
-        <div className={styles.wrapper}>
-          <div className={styles.main}>
-            <div className={styles.cards}>
-          <Card />
-          <Card />
-          <Card />
-            </div>
-            <Transactions/>
-            <Chart/>
+  return (
+    <div>
+      <div className={styles.wrapper}>
+        <div className={styles.main}>
+          <div className={styles.cards}>
+            <Card />
+            <Card />
+            <Card />
           </div>
-        </div>
-        <div  className={styles.side}>
-        
+          <Transactions />
+          <Chart />
         </div>
       </div>
-    )
-  }
-  
-  export default Dashboard
+      <div className={styles.side}></div>
+    </div>
+  );
+};
+
+export default Dashboard;

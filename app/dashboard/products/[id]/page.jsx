@@ -23,11 +23,7 @@ const SingleProductsPage = async ({ params }) => {
           <label> Stock</label>
           <input type="number" name="stock" placeholder={product.stock} />
 
-          <select
-            name="cat"
-            id="cat"
-            defaultValue={product.cat || ""}
-          >
+          <select name="cat" id="cat" defaultValue={product.cat || ""}>
             <option value="general"> Choose a Category</option>
             <option value="kitchen">Kitchen</option>
             <option value="Phone">Phone</option>
