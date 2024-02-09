@@ -11,8 +11,7 @@ export const authConfig = {
       if (isOnDashboard) {
         if (isLoggedIn) return true;
         return false;
-      } else if (isLoggedIn) //aqui a validadação precisa ser concluída erro de URL redirecionamento fixado
-      {
+      } else if (isLoggedIn)  {
         return Response.redirect(new URL("/dashboard", request.nextUrl));
       }
       return true;

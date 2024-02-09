@@ -1,4 +1,4 @@
-import { deleteUser, deleteusers } from "../../../lib/actions";
+import { deleteUser } from "../../../lib/actions";
 import { fetchUsers } from "../../../lib/data";
 import Pagination from "../../ui/dashboard/pagination/pagination";
 import Search from "../../ui/dashboard/search/search";
