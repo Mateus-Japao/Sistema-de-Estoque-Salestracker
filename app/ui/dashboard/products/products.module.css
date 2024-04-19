@@ -51,3 +51,9 @@
 .delete {
     background-color: crimson;
 }
+.sell {
+    background-color: rgb(27, 220, 20);
+}
+.buy {
+    background-color: rgb(20, 210, 220);
+}

@@ -1,6 +1,6 @@
 import Card from "../ui/dashboard/card/card";
 import styles from "../ui/dashboard/dashboard.module.css";
-import Transactions from "../ui/dashboard/transactions/transactions";
+import Transactions from "./transactions/transactions";
 import Chart from "../ui/dashboard/chart/chart";
 
 const Dashboard = () => {

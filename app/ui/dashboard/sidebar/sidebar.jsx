@@ -5,13 +5,14 @@ import {
   MdDashboard,
   MdSupervisedUserCircle,
   MdShoppingBag,
-  MdAttachMoney,
   MdWork,
   MdAnalytics,
   MdPeople,
   MdOutlineSettings,
   MdHelpCenter,
   MdLogout,
+  MdPieChart,
+  MdAllInbox
 } from "react-icons/md";
 import { auth, signOut } from "../../../auth";
 
@@ -37,7 +38,12 @@ const menuItems = [
       {
         title: "Transactions",
         path: "/dashboard/transactions",
-        icon: <MdAttachMoney />,
+        icon: <MdPieChart />,
+      },
+      {
+        title: "Stock",
+        path: "/dashboard/stock",
+        icon: <MdAllInbox />,
       },
     ],
   },
