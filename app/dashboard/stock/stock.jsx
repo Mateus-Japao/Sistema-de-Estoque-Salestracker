@@ -3,7 +3,7 @@ import styles from "../../ui/dashboard/products/products.module.css";
 import Search from "../../ui/dashboard/search/search";
 import Pagination from "../../ui/dashboard/pagination/pagination";
 import Link from "next/link";
-import { deleteProduct } from "../../../lib/actions";
+import { deleteProductStock } from "../../../lib/actions";
 import { fetchStocks } from "../../../lib/data";
 
 export const ProductsStock = async ({searchParams}) => {
@@ -55,7 +55,7 @@ export const ProductsStock = async ({searchParams}) => {
                   <Link href={`/dashboard/stock/${product.id}`}>
                     <button className={` ${styles.button} ${styles.view}`}>View</button>
                   </Link>
-                  <form action={deleteProduct}>
+                  <form action={deleteProductStock}>
                      <input type="hidden" name="id"value={product.id} />
                      <button className={` ${styles.button} ${styles.delete}`}>
                       Delete</button>
