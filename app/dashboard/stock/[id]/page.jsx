@@ -1,10 +1,10 @@
 import Image from "next/image";
 import styles from "../../../ui/dashboard/products/SingleProducts/SingleProducts.module.css";
-import { fetchProduct } from "../../../../lib/data";
+import { fetchProductStock } from "../../../../lib/data";
 import { updateProduct } from "../../../../lib/actions";
 const SingleProductsPage = async ({ params }) => {
   const { id } = params;
-  const product = await fetchProduct(id);
+  const product = await fetchProductStock(id);
   return (
     <div className={styles.container}>
       <div className={styles.infoContainer}>

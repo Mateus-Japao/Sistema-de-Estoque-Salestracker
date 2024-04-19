@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "../../../ui/dashboard/products/SingleProducts/SingleProducts.module.css";
 import { fetchProduct } from "../../../../lib/data";
-import { updateProduct } from "../../../../lib/actions";
+import { addProductStock } from "../../../../lib/actions";
 const SingleProductsPage = async ({ params }) => {
   const { id } = params;
   const product = await fetchProduct(id);
@@ -14,22 +14,14 @@ const SingleProductsPage = async ({ params }) => {
         <div>{product.title}</div>
       </div>
       <div className={styles.formContainer}>
-        <form action={updateProduct} className={styles.form}>
-          <input type="hidden" name="id" value={product.id} />
-          <label> Title</label>
-          <input type="text" name="title" placeholder={product.title} />
+        <form action={addProductStock} className={styles.form}>
+        <input type="text" placeholder="{product.title}" name="title" value={product.title} required />
           <label> Price</label>
           <input type="number" name="price" placeholder={product.price} />
           <label> Stock</label>
           <input type="number" name="stock" placeholder={product.stock} />
-
-          <select name="cat" id="cat" defaultValue={product.cat || ""}>
-            <option value="general"> Choose a Category</option>
-            <option value="kitchen">Kitchen</option>
-            <option value="Phone">Phone</option>
-            <option value="Computer">Computer</option>
-          </select>
-
+          <label> Installment</label>
+          <input type="number" name="installments" />
           <button>Buy</button>
         </form>
       </div>

@@ -4,7 +4,7 @@ import Search from "../../ui/dashboard/search/search";
 import Pagination from "../../ui/dashboard/pagination/pagination";
 import Link from "next/link";
 import { fetchProducts } from "../../../lib/data";
-import { deleteProduct } from "../../../lib/actions";
+
 
 export const Products = async ({searchParams}) => {
   const q = searchParams?.q || "";
@@ -43,9 +43,6 @@ export const Products = async ({searchParams}) => {
               <td>{product.createdAt?.toString().splice(4, 16)}</td>
               <td>
                 <div className={styles.buttons}>
-                <Link href={`/dashboard/sell/${product.id}`}>
-                    <button className={` ${styles.button} ${styles.sell}`}>Sell</button>
-                  </Link>
                   <Link href={`/dashboard/buy/${product.id}`}>
                     <button className={` ${styles.button} ${styles.buy}`}>Buy</button>
                   </Link>
