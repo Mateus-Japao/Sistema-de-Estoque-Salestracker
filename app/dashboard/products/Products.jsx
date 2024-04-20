@@ -47,6 +47,9 @@ export const Products = async ({searchParams}) => {
                   <Link href={`/dashboard/buy/${product.id}`}>
                     <button className={` ${styles.button} ${styles.buy}`}>Buy</button>
                   </Link>
+                  <Link href={`/dashboard/products/${product.id}`}>
+                    <button className={` ${styles.button} ${styles.view}`}>Edit</button>
+                  </Link>
                   <form action={deleteProduct}>
                      <input type="hidden" name="id"value={product.id} />
                      <button className={` ${styles.button} ${styles.delete}`}>
