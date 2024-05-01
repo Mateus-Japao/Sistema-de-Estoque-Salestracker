@@ -4,7 +4,7 @@ import Pagination from "../../ui/dashboard/pagination/pagination";
 import styles from "./transactions.module.css";
 
 import Image from "next/image";
-import { deleteProduct, deleteTransactions } from "../../../lib/actions";
+import { deleteTransactions } from "../../../lib/actions";
 const Transactions = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
@@ -25,7 +25,6 @@ const Transactions = async ({ searchParams }) => {
           {transactions.map((transaction) => (
             <tr key={transaction.id}>
               {" "}
-              {/* Adicionei uma chave única para cada item */}
               <td>
                 <div className={styles.user}>
                   <Image
@@ -35,7 +34,7 @@ const Transactions = async ({ searchParams }) => {
                     height={40}
                     className={styles.userImage}
                   />
-                  {transaction.name}
+                  {transaction.title}
                 </div>
               </td>
               <td>
