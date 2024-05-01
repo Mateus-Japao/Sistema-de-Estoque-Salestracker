@@ -1,6 +1,14 @@
-import styles from "./transactions.module.css"
+import Link from "next/link";
+import { fetchTransactions } from "../../../lib/data";
+import Pagination from "../../ui/dashboard/pagination/pagination";
+import styles from "./transactions.module.css";
+
 import Image from "next/image";
-const Transactions = () => {
+import { deleteProduct, deleteTransactions } from "../../../lib/actions";
+const Transactions = async ({ searchParams }) => {
+  const q = searchParams?.q || "";
+  const page = searchParams?.page || 1;
+  const { transactions, count } = await fetchTransactions(q, page);
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>Latest Transactions</h2>
@@ -14,90 +22,49 @@ const Transactions = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                Mateus Felipe
+          {transactions.map((transaction) => (
+            <tr key={transaction.id}>
+              {" "}
+              {/* Adicionei uma chave única para cada item */}
+              <td>
+                <div className={styles.user}>
+                  <Image
+                    src="/noavatar.png"
+                    alt=""
+                    width={40}
+                    height={40}
+                    className={styles.userImage}
+                  />
+                  {transaction.name}
+                </div>
+              </td>
+              <td>
+                <span className={`${styles.status} ${styles.done}`}>
+                  {" "}
+                  {transaction.type}
+                </span>
+              </td>
+              <td>date</td>
+              <td>R$ {transaction.price},00</td>
+              <div className={styles.buttons}>
+                {" "}
+                <Link href={`/dashboard/transactions/${transaction.id}`}>
+                  <button className={` ${styles.button} ${styles.view}`}>
+                    Edit
+                  </button>
+                </Link>
+                <form action={deleteTransactions}>
+                  <input type="hidden" name="id" value={transaction.id} />
+                  <button className={` ${styles.button} ${styles.delete}`}>
+                    Delete
+                  </button>
+                </form>
               </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.done}`}>Done</span>
-            </td>
-            <td>27/12/2023</td>
-            <td>R$1.000,00</td>
-          </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                Allan Queixudo
-              </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.cancelled}`}>
-                Cancelled
-              </span>
-            </td>
-            <td>27/12/2023</td>
-            <td>-R$6.000,00</td>
-          </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                New Mentiroso
-              </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.pending}`}>
-                Pending
-              </span>
-            </td>
-            <td>27/12/2023</td>
-            <td>R$20.000,00</td>
-          </tr>
-          <tr>
-            <td>
-              <div className={styles.user}>
-                <Image
-                  src="/noavatar.png"
-                  alt=""
-                  width={40}
-                  height={40}
-                  className={styles.userImage}
-                />
-                Cara de Cavalo
-              </div>
-            </td>
-            <td>
-              <span className={`${styles.status} ${styles.pending}`}>
-                Pending
-              </span>
-            </td>
-            <td>27/12/2023</td>
-            <td>R$999.999,00</td>
-          </tr>
+            </tr>
+          ))}
         </tbody>
       </table>
+      <Pagination count={count} />
     </div>
   );
 };
