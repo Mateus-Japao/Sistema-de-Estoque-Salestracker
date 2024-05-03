@@ -2,9 +2,9 @@ import Link from "next/link";
 import { fetchTransactions } from "../../../lib/data";
 import Pagination from "../../ui/dashboard/pagination/pagination";
 import styles from "./transactions.module.css";
-
 import Image from "next/image";
 import { deleteTransactions } from "../../../lib/actions";
+
 const Transactions = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
@@ -45,20 +45,22 @@ const Transactions = async ({ searchParams }) => {
               </td>
               <td>date</td>
               <td>R$ {transaction.price},00</td>
-              <div className={styles.buttons}>
-                {" "}
-                <Link href={`/dashboard/transactions/${transaction.id}`}>
-                  <button className={` ${styles.button} ${styles.view}`}>
-                    Edit
-                  </button>
-                </Link>
-                <form action={deleteTransactions}>
-                  <input type="hidden" name="id" value={transaction.id} />
-                  <button className={` ${styles.button} ${styles.delete}`}>
-                    Delete
-                  </button>
-                </form>
-              </div>
+              <td>
+                <div className={styles.buttons}>
+                  {" "}
+                  <Link href={`/dashboard/transactions/${transaction.id}`}>
+                    <button className={` ${styles.button} ${styles.view}`}>
+                      Edit
+                    </button>
+                  </Link>
+                  <form action={deleteTransactions}>
+                    <input type="hidden" name="id" value={transaction.id} />
+                    <button className={` ${styles.button} ${styles.delete}`}>
+                      Delete
+                    </button>
+                  </form>
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>

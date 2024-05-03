@@ -12,7 +12,8 @@ import {
   MdHelpCenter,
   MdLogout,
   MdPieChart,
-  MdAllInbox
+  MdAllInbox,
+  MdLibraryBooks
 } from "react-icons/md";
 import { auth, signOut } from "../../../auth";
 
@@ -45,6 +46,11 @@ const menuItems = [
         path: "/dashboard/stock",
         icon: <MdAllInbox />,
       },
+      {
+        title: "Category",
+        path: "/dashboard/category",
+        icon: <MdLibraryBooks />,
+      },
     ],
   },
   {
@@ -65,6 +71,7 @@ const menuItems = [
         path: "/dashboard/teams",
         icon: <MdPeople />,
       },
+      
     ],
   },
   {

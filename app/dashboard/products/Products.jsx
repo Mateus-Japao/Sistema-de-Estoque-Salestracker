@@ -24,12 +24,12 @@ export const Products = async ({searchParams}) => {
           <tr>
             <td>Title</td>
             <td>Category</td>
+            <td>Actions</td>
           </tr>
         </thead>
         <tbody>
-          {products.map((product) => (
-
-
+          {products.map((product) => ( 
+                   
             <tr key={product.id}>
               <td> <div className={styles.products}>
                 <Image src={product.img || "/noproduct.jpg"}
