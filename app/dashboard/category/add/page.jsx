@@ -6,7 +6,7 @@ const addCategoryPage = () => {
   return (
     <div className={Styles.container}>
       <form action={addCategory} className={Styles.form}>
-        <input type="text" placeholder="title" name="type" required />
+        <input type="text" placeholder="title" name="name" required />
          <textarea
           name="desc"
           id="desc"

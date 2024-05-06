@@ -19,7 +19,8 @@
     "react-icons": "^4.11.0",
     "recharts": "^2.9.0",
     "sharp": "^0.33.2",
-    "use-debounce": "^10.0.0"
+    "use-debounce": "^10.0.0",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "eslint": "8",
