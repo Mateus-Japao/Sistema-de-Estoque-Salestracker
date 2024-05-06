@@ -3,19 +3,20 @@ import styles from "../../ui/dashboard/products/products.module.css";
 import Search from "../../ui/dashboard/search/search";
 import Pagination from "../../ui/dashboard/pagination/pagination";
 import Link from "next/link";
-import { deleteCategory, deleteProductStock } from "../../../lib/actions";
+import { deleteCategory } from "../../../lib/actions";
 import { fetchCategory } from "../../../lib/data";
 
 export const CategoryProduct = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
   const { category, count } = await fetchCategory(q, page);
+  
   return (
     <div className={styles.container}>
       <div className={styles.top}>
         <Search placeholder="Search for products..." />
         <Link href="/dashboard/category/add">
-          <button className={styles.addButton}>Add New</button>
+          <button className={styles.addButton}>Add New Category</button>
         </Link>
       </div>
       <table className={styles.table}>
