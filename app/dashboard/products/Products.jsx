@@ -51,7 +51,7 @@ export const Products = async ({searchParams}) => {
                     <button className={` ${styles.button} ${styles.view}`}>Edit</button>
                   </Link>
                   <form action={deleteProduct}>
-                     <input type="text" name="id"value={product.idProduct} />
+                     <input type="hidden" name="id" value={product.id} />
                      <button className={` ${styles.button} ${styles.delete}`}>
                       Delete bugado</button>
                   </form>
