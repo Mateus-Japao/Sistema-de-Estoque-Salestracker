@@ -30,7 +30,7 @@ export const CategoryProduct = async ({ searchParams }) => {
             <tr key={categories.id}>
               <td>
                 <div className={styles.products}>
-                  {categories.type}
+                  {categories.name}
                 </div>
               </td>
               <td>{categories.desc}</td>
