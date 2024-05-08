@@ -5,6 +5,7 @@ import {
   MdDashboard,
   MdSupervisedUserCircle,
   MdShoppingBag,
+  MdShoppingCart,
   MdWork,
   MdAnalytics,
   MdPeople,
@@ -13,7 +14,7 @@ import {
   MdLogout,
   MdPieChart,
   MdAllInbox,
-  MdLibraryBooks
+  MdLibraryBooks,
 } from "react-icons/md";
 import { auth, signOut } from "../../../auth";
 
@@ -25,6 +26,11 @@ const menuItems = [
         title: "Dashboard",
         path: "/dashboard",
         icon: <MdDashboard />,
+      },
+      {
+        title: "Buy",
+        path: "/dashboard/buy",
+        icon: <MdShoppingCart />,
       },
       {
         title: "Users",
