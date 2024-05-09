@@ -44,7 +44,7 @@ export const ProductsStock = async ({ searchParams }) => {
                 <div className={styles.buttons}>
                   <Link href={`/dashboard/stock/${product.id}`}>
                     <button className={` ${styles.button} ${styles.view}`}>
-                      View
+                      Edit
                     </button>
                   </Link>
                   <form action={deleteProductStock}>

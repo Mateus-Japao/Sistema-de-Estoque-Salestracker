@@ -4,7 +4,7 @@ import Styles from "../../../ui/dashboard/products/addProducts/addProducts.modul
 
 export const Products = async ({searchParams}) => {
   const q = searchParams?.q || "";
-     
+    
   const { category } = await fetchCategory(q);
   return (
     <div className={Styles.container}>
