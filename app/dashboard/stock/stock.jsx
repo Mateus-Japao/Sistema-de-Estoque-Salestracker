@@ -25,7 +25,7 @@ export const ProductsStock = async ({ searchParams }) => {
         </thead>
         <tbody>
         {products.map (async (product) => {
-            const product1 = await fetchProduct(product.idCategory);
+            const product1 = await fetchProduct(product.idProduct);
             return (
               <tr key={product.id}>
                 <td>
@@ -41,7 +41,7 @@ export const ProductsStock = async ({ searchParams }) => {
                   </div>
                 </td>
                 <td>{product1.title}</td>
-                <td>price</td> 
+                <td>{products.price}</td> 
                 <td>
                   <div className={styles.buttons}>
                     <Link href={`/dashboard/products/${product.id}`}>
