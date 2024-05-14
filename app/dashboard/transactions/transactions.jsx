@@ -54,7 +54,7 @@ const Transactions = async ({ searchParams }) => {
                     {" "}
                     <Link href={`/dashboard/transactions/${transaction.id}`}>
                       <button className={` ${styles.button} ${styles.view}`}>
-                        Edit
+                        View
                       </button>
                     </Link>
                     <form>
