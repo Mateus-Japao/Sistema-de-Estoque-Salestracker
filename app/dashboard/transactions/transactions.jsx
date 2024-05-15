@@ -1,7 +1,7 @@
 import Link from "next/link";
 import {
   fetchCategoryId,
-  fetchItens,
+  fetchItensTransaction,
   fetchProduct,
   fetchTransactions,
 } from "../../../lib/data";
@@ -30,7 +30,7 @@ const Transactions = async ({ searchParams }) => {
         </thead>
         <tbody>
           {transactions.map(async (transaction) => {
-            const item = await fetchItens(transaction.id);
+            const item = await fetchItensTransaction(transaction.id);
             const category = await fetchCategoryId(item.idCategory);
             const product = await fetchProduct(item.idProduct);
             return (
