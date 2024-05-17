@@ -3,12 +3,14 @@ import styles from "../../ui/dashboard/products/products.module.css";
 import Search from "../../ui/dashboard/search/search";
 import Pagination from "../../ui/dashboard/pagination/pagination";
 import Link from "next/link";
-import { fetchCategoryId, fetchProduct, fetchStocks } from "../../../lib/data";
+import { fetchCategoryId, fetchProduct, fetchProductStock, fetchProducts, fetchStocks } from "../../../lib/data";
 
-export const ProductsStock = async ({ searchParams }) => {
+
+export const Sell = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
   const { products, count } = await fetchStocks(q, page);
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -17,7 +19,6 @@ export const ProductsStock = async ({ searchParams }) => {
       <table className={styles.table}>
         <thead>
           <tr>
-            <td></td>
             <td>Title</td>
             <td>Category</td>
             <td>Quantity</td>
@@ -25,9 +26,9 @@ export const ProductsStock = async ({ searchParams }) => {
           </tr>
         </thead>
         <tbody>
-        {products.map (async (product) => {
+          {products.map(async (product) => {
             const product1 = await fetchProduct(product.idProduct);
-            const category = await fetchCategoryId(product1.idCategory);
+            const category = await fetchCategoryId(product1.idCategory)
             return (
               <tr key={product.id}>
                 <td>
@@ -41,15 +42,15 @@ export const ProductsStock = async ({ searchParams }) => {
                     />
                     {product.title}
                   </div>
-                </td> 
-                <td>{product1.title}</td>
+                </td>
                 <td>{category.name}</td>
-                <td>{product.quantity}</td> 
+                <td>{product.quantity}</td>
+
                 <td>
                   <div className={styles.buttons}>
-                    <Link href={`/dashboard/products/${product.id}`}>
-                      <button className={`${styles.button} ${styles.view}`}>
-                       View
+                    <Link href={`/dashboard/sell/${product.id}`}>
+                      <button className={` ${styles.button} ${styles.buy}`}>
+                        Sell
                       </button>
                     </Link>
                   </div>

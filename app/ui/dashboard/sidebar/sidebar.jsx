@@ -12,9 +12,10 @@ import {
   MdOutlineSettings,
   MdHelpCenter,
   MdLogout,
-  MdPieChart,
   MdAllInbox,
   MdLibraryBooks,
+  MdMonetizationOn,
+  MdSwapHorizontalCircle,
 } from "react-icons/md";
 import { auth, signOut } from "../../../auth";
 
@@ -26,6 +27,11 @@ const menuItems = [
         title: "Dashboard",
         path: "/dashboard",
         icon: <MdDashboard />,
+      },
+      {
+        title: "Sell",
+        path: "/dashboard/sell",
+        icon: <MdMonetizationOn />,
       },
       {
         title: "Buy",
@@ -45,7 +51,7 @@ const menuItems = [
       {
         title: "Transactions",
         path: "/dashboard/transactions",
-        icon: <MdPieChart />,
+        icon: <MdSwapHorizontalCircle />,
       },
       {
         title: "Stock",
@@ -77,7 +83,6 @@ const menuItems = [
         path: "/dashboard/teams",
         icon: <MdPeople />,
       },
-      
     ],
   },
   {
@@ -97,8 +102,8 @@ const menuItems = [
   },
 ];
 const Sidebar = async () => {
-  const {user} = await auth();
-  
+  const { user } = await auth();
+
   return (
     <div className={styles.container}>
       <div className={styles.user}>
@@ -138,6 +143,6 @@ const Sidebar = async () => {
       </form>
     </div>
   );
-}
+};
 
 export default Sidebar;
