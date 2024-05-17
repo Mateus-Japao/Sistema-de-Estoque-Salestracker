@@ -7,7 +7,6 @@ import {
 } from "../../../lib/data";
 import Pagination from "../../ui/dashboard/pagination/pagination";
 import styles from "./transactions.module.css";
-import Image from "next/image";
 
 const Transactions = async ({ searchParams }) => {
   const q = searchParams?.q || "";
@@ -30,9 +29,8 @@ const Transactions = async ({ searchParams }) => {
         </thead>
         <tbody>
           {transactions.map(async (transaction) => {
-            const item = await fetchItensTransaction(transaction.id);
-            const category = await fetchCategoryId(item.idCategory);
-            const product = await fetchProduct(item.idProduct);
+             const product = await fetchProduct(transaction.idProduct);
+             const category = await fetchCategoryId(product.idCategory);
             return (
               <tr key={transaction.id}>
                 {" "}
@@ -48,7 +46,7 @@ const Transactions = async ({ searchParams }) => {
                   </span>
                 </td>
                 <td>{transaction.date.toLocaleDateString("pt-BR")}</td>
-                <td>{item.quantity}</td>
+                <td>{transaction.amount}</td>
                 <td>
                   <div className={styles.buttons}>
                     {" "}

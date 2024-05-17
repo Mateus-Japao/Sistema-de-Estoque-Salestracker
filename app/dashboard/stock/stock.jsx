@@ -4,7 +4,7 @@ import Search from "../../ui/dashboard/search/search";
 import Pagination from "../../ui/dashboard/pagination/pagination";
 import Link from "next/link";
 import { deleteProductStock } from "../../../lib/actions";
-import { fetchProduct, fetchStocks } from "../../../lib/data";
+import { fetchCategoryId, fetchProduct, fetchStocks } from "../../../lib/data";
 
 export const ProductsStock = async ({ searchParams }) => {
   const q = searchParams?.q || "";
@@ -20,12 +20,15 @@ export const ProductsStock = async ({ searchParams }) => {
           <tr>
             <td></td>
             <td>Title</td>
-            <td>Price</td>
+            <td>Category</td>
+            <td>Quantity</td>
+            <td>Actions</td>
           </tr>
         </thead>
         <tbody>
         {products.map (async (product) => {
             const product1 = await fetchProduct(product.idProduct);
+            const category = await fetchCategoryId(product1.idCategory);
             return (
               <tr key={product.id}>
                 <td>
@@ -39,9 +42,10 @@ export const ProductsStock = async ({ searchParams }) => {
                     />
                     {product.title}
                   </div>
-                </td>
+                </td> 
                 <td>{product1.title}</td>
-                <td>{products.price}</td> 
+                <td>{category.name}</td>
+                <td>{product.quantity}</td> 
                 <td>
                   <div className={styles.buttons}>
                     <Link href={`/dashboard/products/${product.id}`}>
