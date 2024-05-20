@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   fetchCategoryId,
-  fetchItensTransaction,
   fetchProduct,
   fetchTransactions,
 } from "../../../lib/data";
@@ -23,14 +22,13 @@ const Transactions = async ({ searchParams }) => {
             <td>Status</td>
             <td>Date</td>
             <td>Quantity</td>
-
             <td>Actions</td>
           </tr>
         </thead>
         <tbody>
           {transactions.map(async (transaction) => {
-             const product = await fetchProduct(transaction.idProduct);
-             const category = await fetchCategoryId(product.idCategory);
+            const product = await fetchProduct(transaction.idProduct);
+            const category = await fetchCategoryId(product.idCategory);
             return (
               <tr key={transaction.id}>
                 {" "}
@@ -57,8 +55,8 @@ const Transactions = async ({ searchParams }) => {
                     </Link>
                     <form>
                       <input type="hidden" name="id" value={transaction.id} />
-                      <button className={` ${styles.button} ${styles.delete}`}>
-                        Delete inativo
+                      <button  className={` ${styles.button} ${styles.delete}`}>
+                       Cancelar inativo
                       </button>
                     </form>
                   </div>

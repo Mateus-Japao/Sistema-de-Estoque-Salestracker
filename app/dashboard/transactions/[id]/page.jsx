@@ -16,21 +16,9 @@ const SingleTransactionsPage = async ({ params }) => {
       <div className={styles.formContainer}>
         <form className={styles.form}>
           <input type="hidden" name="id" value={transactions.id} />
-          <label> Title</label>
-          <input type="text" name="title" placeholder={transactions.title} />
           <label> Price</label>
-          <input type="number" name="price" placeholder={transactions.price} />
-          <label> Stock</label>
-          <input type="number" name="stock" placeholder={transactions.stock} />
-
-          <select name="cat" id="cat" defaultValue={transactions.cat || ""}>
-            <option value="general"> Choose a Category</option>
-            <option value="kitchen">Kitchen</option>
-            <option value="Phone">Phone</option>
-            <option value="Computer">Computer</option>
-          </select>
-
-          <button>Sell</button>
+          <input type="number" name="price" placeholder={transactions.value} />
+          <button>Update inativo</button>
         </form>
       </div>
     </div>
