@@ -2,7 +2,6 @@ import Image from "next/image";
 import styles from "../../ui/dashboard/products/products.module.css";
 import Search from "../../ui/dashboard/search/search";
 import Pagination from "../../ui/dashboard/pagination/pagination";
-import Link from "next/link";
 import { fetchCategoryId, fetchProduct, fetchStocks } from "../../../lib/data";
 
 export const ProductsStock = async ({ searchParams }) => {
@@ -21,7 +20,7 @@ export const ProductsStock = async ({ searchParams }) => {
             <td>Title</td>
             <td>Category</td>
             <td>Quantity</td>
-            <td>Actions</td>
+            <td>Description</td>
           </tr>
         </thead>
         <tbody>
@@ -45,7 +44,8 @@ export const ProductsStock = async ({ searchParams }) => {
                 <td>{product1.title}</td>
                 <td>{category.name}</td>
                 <td>{product.quantity}</td> 
-                <td>
+                <td>{product1.desc}</td>
+                {/* <td>
                   <div className={styles.buttons}>
                     <Link href={`/dashboard/products/${product.id}`}>
                       <button className={`${styles.button} ${styles.view}`}>
@@ -53,7 +53,7 @@ export const ProductsStock = async ({ searchParams }) => {
                       </button>
                     </Link>
                   </div>
-                </td>
+                </td> */}
               </tr>
             );
           })}

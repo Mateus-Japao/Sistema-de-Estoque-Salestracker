@@ -18,6 +18,12 @@ const SingleTransactionsPage = async ({ params }) => {
           <input type="hidden" name="id" value={transactions.id} />
           <label> Price</label>
           <input type="number" name="price" placeholder={transactions.value} />
+          <textarea
+            name="desc"
+            id="desc"
+            rows="16"
+            placeholder={transactions.desc}
+          ></textarea>
           <button>Update inativo</button>
         </form>
       </div>

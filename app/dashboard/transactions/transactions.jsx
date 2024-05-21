@@ -6,6 +6,7 @@ import {
 } from "../../../lib/data";
 import Pagination from "../../ui/dashboard/pagination/pagination";
 import styles from "./transactions.module.css";
+// import { cancelTransactions } from "../../../lib/actions";
 
 const Transactions = async ({ searchParams }) => {
   const q = searchParams?.q || "";
@@ -50,15 +51,15 @@ const Transactions = async ({ searchParams }) => {
                     {" "}
                     <Link href={`/dashboard/transactions/${transaction.id}`}>
                       <button className={` ${styles.button} ${styles.view}`}>
-                        View
+                        Edit
                       </button>
                     </Link>
-                    <form>
+                    {/* <form action={cancelTransactions}>
                       <input type="hidden" name="id" value={transaction.id} />
                       <button  className={` ${styles.button} ${styles.delete}`}>
                        Cancelar inativo
                       </button>
-                    </form>
+                    </form> */}
                   </div>
                 </td>
               </tr>
