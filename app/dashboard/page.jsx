@@ -1,7 +1,6 @@
 import Card from "../ui/dashboard/card/card";
 import styles from "../ui/dashboard/dashboard.module.css";
-import Chart from "./chart/page";
-
+import ChartPage from "./chart/page";
 import Transactions from "./transactions/page";
 
 const Dashboard = () => {
@@ -15,7 +14,7 @@ const Dashboard = () => {
             <Card />
           </div>
           <div>
-            <Chart />
+            <ChartPage />
           </div>
         <Transactions/>
         </div>

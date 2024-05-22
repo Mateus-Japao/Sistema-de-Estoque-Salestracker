@@ -62,16 +62,16 @@ const menuItems = [
         path: "/dashboard/category",
         icon: <MdLibraryBooks />,
       },
-    ],
-  },
-  {
-    title: "Analystics",
-    list: [
       {
         title: "Graph",
         path: "/dashboard/chart",
         icon: <MdAnalytics />,
       },
+    ],
+  },
+  {
+    title: "Analystics",
+    list: [
       {
         title: "Teams",
         path: "/dashboard/teams",

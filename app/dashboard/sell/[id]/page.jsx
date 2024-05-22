@@ -4,8 +4,8 @@ import { fetchProduct, fetchProductStock } from "../../../../lib/data";
 import { sellProdctStock } from "../../../../lib/actions";
 const SingleProductsPage = async ({ params }) => {
   const { id } = params;
-  const product = await fetchProduct(id);
-  const productQtd = await fetchProductStock(product.id);
+  const productStock = await fetchProductStock(id);
+  const product = await fetchProduct(productStock.idProduct);
   return (
     <div className={styles.container}>
       <div className={styles.infoContainer}>
@@ -18,7 +18,7 @@ const SingleProductsPage = async ({ params }) => {
         <form action={sellProdctStock} className={styles.form}>
           <input type="hidden" name="idProductValue" value={product.id} />
           <label>Amount</label>
-          <input placeholder={`${productQtd.quantity}`} type="number" name="amount" />
+          <input placeholder={`${productStock.quantity}`} type="number" name="amount" />
           <label> Price total</label>
           <input type="number" name="value" />
           <label> Data</label>

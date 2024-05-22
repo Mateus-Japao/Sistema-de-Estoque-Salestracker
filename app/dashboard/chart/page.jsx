@@ -1,3 +1,2 @@
-import { Chart } from "./chart";
-
-export default Chart;
+import ChartPage from "./chart";
+export default ChartPage;
