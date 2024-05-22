@@ -6,7 +6,6 @@ import {
   MdSupervisedUserCircle,
   MdShoppingBag,
   MdShoppingCart,
-  MdWork,
   MdAnalytics,
   MdPeople,
   MdOutlineSettings,
@@ -69,13 +68,8 @@ const menuItems = [
     title: "Analystics",
     list: [
       {
-        title: "Revenue",
-        path: "/dashboard/revenue",
-        icon: <MdWork />,
-      },
-      {
-        title: "Reports",
-        path: "/dashboard/reports",
+        title: "Graph",
+        path: "/dashboard/chart",
         icon: <MdAnalytics />,
       },
       {

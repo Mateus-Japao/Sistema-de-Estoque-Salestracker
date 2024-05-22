@@ -1,6 +1,7 @@
 import Card from "../ui/dashboard/card/card";
 import styles from "../ui/dashboard/dashboard.module.css";
-import Chart from "../ui/dashboard/chart/chart";
+import Chart from "./chart/page";
+
 import Transactions from "./transactions/page";
 
 const Dashboard = () => {
@@ -13,8 +14,10 @@ const Dashboard = () => {
             <Card />
             <Card />
           </div>
+          <div>
+            <Chart />
+          </div>
         <Transactions/>
-          <Chart />
         </div>
       </div>
       <div className={styles.side}></div>

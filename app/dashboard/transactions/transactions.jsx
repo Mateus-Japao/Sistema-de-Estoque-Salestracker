@@ -6,7 +6,7 @@ import {
 } from "../../../lib/data";
 import Pagination from "../../ui/dashboard/pagination/pagination";
 import styles from "./transactions.module.css";
-// import { cancelTransactions } from "../../../lib/actions";
+
 
 const Transactions = async ({ searchParams }) => {
   const q = searchParams?.q || "";
@@ -23,6 +23,7 @@ const Transactions = async ({ searchParams }) => {
             <td>Status</td>
             <td>Date</td>
             <td>Quantity</td>
+            <td>Value</td>
             <td>Actions</td>
           </tr>
         </thead>
@@ -46,6 +47,7 @@ const Transactions = async ({ searchParams }) => {
                 </td>
                 <td>{transaction.date.toLocaleDateString("pt-BR")}</td>
                 <td>{transaction.amount}</td>
+                <td>{transaction.value}</td>
                 <td>
                   <div className={styles.buttons}>
                     {" "}
@@ -54,12 +56,6 @@ const Transactions = async ({ searchParams }) => {
                         Edit
                       </button>
                     </Link>
-                    {/* <form action={cancelTransactions}>
-                      <input type="hidden" name="id" value={transaction.id} />
-                      <button  className={` ${styles.button} ${styles.delete}`}>
-                       Cancelar inativo
-                      </button>
-                    </form> */}
                   </div>
                 </td>
               </tr>

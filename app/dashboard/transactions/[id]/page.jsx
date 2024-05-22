@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "../../../ui/dashboard/products/SingleProducts/SingleProducts.module.css";
 import { allFetchTransactions, fetchTransactions } from "../../../../lib/data";
+import { updateTransaction } from "../../../../lib/actions";
 
 const SingleTransactionsPage = async ({ params }) => {
   const { id } = params;
@@ -14,10 +15,10 @@ const SingleTransactionsPage = async ({ params }) => {
         <div>{transactions.title}</div>
       </div>
       <div className={styles.formContainer}>
-        <form className={styles.form}>
+        <form action={updateTransaction} className={styles.form}>
           <input type="hidden" name="id" value={transactions.id} />
           <label> Price</label>
-          <input type="number" name="price" placeholder={transactions.value} />
+          <input type="number" name="value" placeholder={transactions.value} />
           <textarea
             name="desc"
             id="desc"

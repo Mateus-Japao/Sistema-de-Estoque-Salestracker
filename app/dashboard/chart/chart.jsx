@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import styles from "./chart.module.css";
 import {
   LineChart,
@@ -13,7 +13,9 @@ import {
 
 
 
-const Chart = () => {const data = [
+ export const Chart = () => {
+
+  const data = [
   {
     name: "Page A",
     Sell: 4000,
@@ -90,5 +92,3 @@ const Chart = () => {const data = [
     </div>
   );
 };
-
-export default Chart;
