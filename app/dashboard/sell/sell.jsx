@@ -40,7 +40,7 @@ export const Sell = async ({ searchParams }) => {
                       height={40}
                       className={styles.productsImage}
                     />
-                    {product.title}
+                    {product1.title}
                   </div>
                 </td>
                 <td>{category.name}</td>
