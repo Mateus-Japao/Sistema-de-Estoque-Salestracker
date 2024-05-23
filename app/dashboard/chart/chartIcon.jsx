@@ -34,11 +34,11 @@ const Chart = ({ data }) => {
           <Legend />
           <Line
             type="monotone"
-            dataKey="Buy"
+            dataKey="buy"
             stroke="#8884d8"
             activeDot={{ r: 8 }}
           />
-          <Line type="monotone" dataKey="Sell" stroke="#82ca9d" />
+          <Line type="monotone" dataKey="sell" stroke="#82ca9d" />
         </LineChart>
       </ResponsiveContainer>
     </div>
