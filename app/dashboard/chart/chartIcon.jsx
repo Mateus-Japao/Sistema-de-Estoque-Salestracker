@@ -14,7 +14,7 @@ import {
 const Chart = ({ data }) => {
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Recapitulação Semanal</h2>
+      <h2 className={styles.title}> Transactions Buy and Sell</h2>
       <ResponsiveContainer width="100%" height="90%">
         <LineChart
           width={500}
