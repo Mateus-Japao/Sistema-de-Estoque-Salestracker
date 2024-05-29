@@ -15,9 +15,19 @@ const SingleProductsPage = async ({ params }) => {
       </div>
       <div className={styles.formContainer}>
         <form action={addProductStock} className={styles.form}>
-        <input type="text" placeholder="{product.title}" name="title" defaultValue={product.title || ""} required />
-          <label> Price</label>
-          <input type="number" name="installments" />
+          <input type="hidden" name="idProductValue" value={product.id} />
+          <label>Amount</label>
+          <input type="number" name="amount" />
+          <label> Price total</label>
+          <input type="number" name="value" />
+          <label> Data</label>
+          <input type="date" name="date" />
+          <textarea
+            name="desc"
+            id="desc"
+            rows="16"
+            placeholder="Description"
+          ></textarea>
           <button>Buy</button>
         </form>
       </div>

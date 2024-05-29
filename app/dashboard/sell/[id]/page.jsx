@@ -1,10 +1,11 @@
 import Image from "next/image";
 import styles from "../../../ui/dashboard/products/SingleProducts/SingleProducts.module.css";
-import {fetchProductStock } from "../../../../lib/data";
-import { updateProduct } from "../../../../lib/actions";
+import { fetchProduct, fetchProductStock } from "../../../../lib/data";
+import { sellProdctStock } from "../../../../lib/actions";
 const SingleProductsPage = async ({ params }) => {
   const { id } = params;
-  const product = await fetchProductStock(id);
+  const productStock = await fetchProductStock(id);
+  const product = await fetchProduct(productStock.idProduct);
   return (
     <div className={styles.container}>
       <div className={styles.infoContainer}>
@@ -14,22 +15,20 @@ const SingleProductsPage = async ({ params }) => {
         <div>{product.title}</div>
       </div>
       <div className={styles.formContainer}>
-        <form action={updateProduct} className={styles.form}>
-          <input type="hidden" name="id" value={product.id} />
-          <label> Title</label>
-          <input type="text" name="title" placeholder={product.title} />
-          <label> Price</label>
-          <input type="number" name="price" placeholder={product.price} />
-          <label> Stock</label>
-          <input type="number" name="stock" placeholder={product.stock} />
-
-          <select name="cat" id="cat" defaultValue={product.cat || ""}>
-            <option value="general"> Choose a Category</option>
-            <option value="kitchen">Kitchen</option>
-            <option value="Phone">Phone</option>
-            <option value="Computer">Computer</option>
-          </select>
-
+        <form action={sellProdctStock} className={styles.form}>
+          <input type="hidden" name="idProductValue" value={product.id} />
+          <label>Amount</label>
+          <input placeholder={`${productStock.quantity}`} type="number" name="amount" />
+          <label> Price total</label>
+          <input type="number" name="value" />
+          <label> Data</label>
+          <input type="date" name="date" />
+          <textarea
+            name="desc"
+            id="desc"
+            rows="16"
+            placeholder="Description"
+          ></textarea>
           <button>Sell</button>
         </form>
       </div>

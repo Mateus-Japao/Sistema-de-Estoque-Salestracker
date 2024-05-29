@@ -3,13 +3,13 @@ import styles from "../../ui/dashboard/products/products.module.css";
 import Search from "../../ui/dashboard/search/search";
 import Pagination from "../../ui/dashboard/pagination/pagination";
 import Link from "next/link";
-import { fetchCategoryId, fetchProducts } from "../../../lib/data";
+import { fetchCategoryId, fetchProduct, fetchProductStock, fetchProducts, fetchStocks } from "../../../lib/data";
 
 
-export const Buy = async ({ searchParams }) => {
+export const Sell = async ({ searchParams }) => {
   const q = searchParams?.q || "";
   const page = searchParams?.page || 1;
-  const { products, count } = await fetchProducts(q, page);
+  const { products, count } = await fetchStocks(q, page);
 
   return (
     <div className={styles.container}>
@@ -21,12 +21,14 @@ export const Buy = async ({ searchParams }) => {
           <tr>
             <td>Title</td>
             <td>Category</td>
+            <td>Quantity</td>
             <td>Actions</td>
           </tr>
         </thead>
         <tbody>
           {products.map(async (product) => {
-            const category = await fetchCategoryId(product.idCategory);
+            const product1 = await fetchProduct(product.idProduct);
+            const category = await fetchCategoryId(product1.idCategory)
             return (
               <tr key={product.id}>
                 <td>
@@ -38,16 +40,17 @@ export const Buy = async ({ searchParams }) => {
                       height={40}
                       className={styles.productsImage}
                     />
-                    {product.title}
+                    {product1.title}
                   </div>
                 </td>
-                <td>{ category.name}</td>
+                <td>{category.name}</td>
+                <td>{product.quantity}</td>
 
                 <td>
                   <div className={styles.buttons}>
-                    <Link href={`/dashboard/buy/${product.id}`}>
+                    <Link href={`/dashboard/sell/${product.id}`}>
                       <button className={` ${styles.button} ${styles.buy}`}>
-                        Buy
+                        Sell
                       </button>
                     </Link>
                   </div>

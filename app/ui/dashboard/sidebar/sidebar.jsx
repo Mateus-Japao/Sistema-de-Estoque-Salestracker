@@ -6,15 +6,15 @@ import {
   MdSupervisedUserCircle,
   MdShoppingBag,
   MdShoppingCart,
-  MdWork,
   MdAnalytics,
   MdPeople,
   MdOutlineSettings,
   MdHelpCenter,
   MdLogout,
-  MdPieChart,
   MdAllInbox,
   MdLibraryBooks,
+  MdMonetizationOn,
+  MdSwapHorizontalCircle,
 } from "react-icons/md";
 import { auth, signOut } from "../../../auth";
 
@@ -26,6 +26,11 @@ const menuItems = [
         title: "Dashboard",
         path: "/dashboard",
         icon: <MdDashboard />,
+      },
+      {
+        title: "Sell",
+        path: "/dashboard/sell",
+        icon: <MdMonetizationOn />,
       },
       {
         title: "Buy",
@@ -45,7 +50,7 @@ const menuItems = [
       {
         title: "Transactions",
         path: "/dashboard/transactions",
-        icon: <MdPieChart />,
+        icon: <MdSwapHorizontalCircle />,
       },
       {
         title: "Stock",
@@ -57,27 +62,21 @@ const menuItems = [
         path: "/dashboard/category",
         icon: <MdLibraryBooks />,
       },
+      {
+        title: "Graph",
+        path: "/dashboard/chart",
+        icon: <MdAnalytics />,
+      },
     ],
   },
   {
     title: "Analystics",
     list: [
       {
-        title: "Revenue",
-        path: "/dashboard/revenue",
-        icon: <MdWork />,
-      },
-      {
-        title: "Reports",
-        path: "/dashboard/reports",
-        icon: <MdAnalytics />,
-      },
-      {
         title: "Teams",
         path: "/dashboard/teams",
         icon: <MdPeople />,
       },
-      
     ],
   },
   {
@@ -97,8 +96,8 @@ const menuItems = [
   },
 ];
 const Sidebar = async () => {
-  const {user} = await auth();
-  
+  const { user } = await auth();
+
   return (
     <div className={styles.container}>
       <div className={styles.user}>
@@ -138,6 +137,6 @@ const Sidebar = async () => {
       </form>
     </div>
   );
-}
+};
 
 export default Sidebar;

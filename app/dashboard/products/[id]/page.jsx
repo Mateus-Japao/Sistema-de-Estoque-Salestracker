@@ -1,12 +1,12 @@
 import Image from "next/image";
 import styles from "../../../ui/dashboard/products/SingleProducts/SingleProducts.module.css";
-import { fetchAllCategories,fetchCategoryId,fetchProduct } from "../../../../lib/data";
+import {fetchCategory, fetchCategoryId,fetchProduct } from "../../../../lib/data";
 import { updateProduct } from "../../../../lib/actions";
 const SingleProductsPage = async ({params}) => {
   const { id } = params;
   const product = await fetchProduct(id);
-  const categories = await fetchAllCategories();
   const category = await fetchCategoryId(product.idCategory)
+  const allCategory = await fetchCategory(params);
 
   return (
     <div className={styles.container}>
@@ -22,11 +22,11 @@ const SingleProductsPage = async ({params}) => {
         <form action={updateProduct} className={styles.form}>
           <input type="hidden" name="id" value={product.id} />
           <label>Change Nome</label>
-          <input type="text" name="title" placeholder={product.title} />
+          <input type="text" name="title" defaultValue={product.title} />
 
           <select name="idCategory" required >
           <option value={category.id}>Change Category</option>
-          {categories.map((categories) => (
+          {allCategory.category.map((categories) => (
             <option  id={categories.id} value={categories.id}>{categories.name}
               </option>
           ))}
@@ -35,7 +35,7 @@ const SingleProductsPage = async ({params}) => {
         name="desc"
         id="desc"
         rows="16"
-        placeholder={product.desc}
+        defaultValue={product.desc}
       ></textarea>
       <button type="submit">Update</button>
         </form>

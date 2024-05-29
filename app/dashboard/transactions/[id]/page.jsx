@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "../../../ui/dashboard/products/SingleProducts/SingleProducts.module.css";
 import { allFetchTransactions, fetchTransactions } from "../../../../lib/data";
+import { updateTransaction } from "../../../../lib/actions";
 
 const SingleTransactionsPage = async ({ params }) => {
   const { id } = params;
@@ -14,23 +15,17 @@ const SingleTransactionsPage = async ({ params }) => {
         <div>{transactions.title}</div>
       </div>
       <div className={styles.formContainer}>
-        <form className={styles.form}>
+        <form action={updateTransaction} className={styles.form}>
           <input type="hidden" name="id" value={transactions.id} />
-          <label> Title</label>
-          <input type="text" name="title" placeholder={transactions.title} />
           <label> Price</label>
-          <input type="number" name="price" placeholder={transactions.price} />
-          <label> Stock</label>
-          <input type="number" name="stock" placeholder={transactions.stock} />
-
-          <select name="cat" id="cat" defaultValue={transactions.cat || ""}>
-            <option value="general"> Choose a Category</option>
-            <option value="kitchen">Kitchen</option>
-            <option value="Phone">Phone</option>
-            <option value="Computer">Computer</option>
-          </select>
-
-          <button>Sell</button>
+          <input type="number" name="value" placeholder={transactions.value} />
+          <textarea
+            name="desc"
+            id="desc"
+            rows="16"
+            placeholder={transactions.desc}
+          ></textarea>
+          <button>Update inativo</button>
         </form>
       </div>
     </div>
