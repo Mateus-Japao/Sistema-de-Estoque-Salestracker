@@ -13,7 +13,7 @@ export const Products = async ({searchParams}) => {
       <select name="category" required>
           <option value="">Choose a Category</option>
           {category.map((categories) => (
-            <option id={categories.id} value={categories.id}>{categories.name}
+            <option key={categories.id} id={categories.id} value={categories.id}>{categories.name}
               </option>
           ))}
         </select>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "../../../ui/dashboard/products/SingleProducts/SingleProducts.module.css";
-import { allFetchTransactions, fetchTransactions } from "../../../../lib/data";
+import { allFetchTransactions } from "../../../../lib/data";
 import { updateTransaction } from "../../../../lib/actions";
 
 const SingleTransactionsPage = async ({ params }) => {

@@ -3,7 +3,7 @@ import styles from "../../ui/dashboard/products/products.module.css";
 import Search from "../../ui/dashboard/search/search";
 import Pagination from "../../ui/dashboard/pagination/pagination";
 import Link from "next/link";
-import { fetchCategoryId, fetchProduct, fetchProductStock, fetchProducts, fetchStocks } from "../../../lib/data";
+import { fetchCategoryId, fetchProduct, fetchStocks } from "../../../lib/data";
 
 
 export const Sell = async ({ searchParams }) => {
