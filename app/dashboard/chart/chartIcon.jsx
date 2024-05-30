@@ -11,7 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const Chart = ({ data }) => {
+const Chart = async ({ data }) => {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}> Transactions Buy and Sell</h2>
