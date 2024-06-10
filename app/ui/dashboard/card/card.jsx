@@ -1,46 +1,44 @@
 import { MdSupervisedUserCircle } from "react-icons/md";
 import styles from "./card.module.css";
+import { allFetchTransacCard } from "../../../../lib/data";
 
-const Card = () => {
+const Card = async() => {
+  const cardData = await allFetchTransacCard();
   return (
     <div className={styles.container}>
       <MdSupervisedUserCircle size={24} />
       <div className={styles.texts}>
         <span className={styles.texts}> Total Buy</span>
-        <span className={styles.number}>10.273</span>
-        <span className={styles.detail}>
-          <span className={styles.positive}>12% </span>more preview
-        </span>
+        <span className={styles.number}>{cardData.totalBuy}</span>
+      
       </div>
     </div>
   );
 };
 export default Card;
 
-export const Card2 = () => {
+export const Card2 = async () => {
+  const cardData = await allFetchTransacCard();
   return (
     <div className={styles.container}>
       <MdSupervisedUserCircle size={24} />
       <div className={styles.texts}>
         <span className={styles.texts}> Total Sell</span>
-        <span className={styles.number}>10.273</span>
-        <span className={styles.detail}>
-          <span className={styles.positive}>12% </span>more preview
-        </span>
+        <span className={styles.number}>{cardData.totalSell}</span>
+       
       </div>
     </div>
   );
 };
-export const Card3 = () => {
+export const Card3 = async () => {
+  const cardData = await allFetchTransacCard();
   return (
     <div className={styles.container}>
       <MdSupervisedUserCircle size={24} />
       <div className={styles.texts}>
-        <span className={styles.texts}> Total Lucro </span>
-        <span className={styles.number}>10.273</span>
-        <span className={styles.detail}>
-          <span className={styles.positive}>12% </span>more preview
-        </span>
+        <span className={styles.texts}> Total Profit </span>
+        <span className={styles.number}>{cardData.totalProfit}</span>
+        
       </div>
     </div>
   );
