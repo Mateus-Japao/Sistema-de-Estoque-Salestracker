@@ -17,6 +17,7 @@ export const Products = async ({searchParams}) => {
               </option>
           ))}
         </select>
+        <input  type="file" id="img" name="img" />
       <textarea
         name="desc"
         id="desc"
