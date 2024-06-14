@@ -11,6 +11,10 @@ const nextConfig = {
                 protocol:"https",
                 hostname:"images.pexels.com"
             },
+            {
+                protocol:"https",
+                hostname:"salestracker1.s3.us-east-2.amazonaws.com"
+            },
             ]
         
     }
