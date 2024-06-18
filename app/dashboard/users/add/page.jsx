@@ -17,6 +17,7 @@ const addUserPage = () => {
           <option value={true}>Yes</option>
           <option value={false}>No</option>
         </select>
+        <input  type="file" id="img" name="img" />
         <button type="submit">Submit</button>
       </form>
     </div>

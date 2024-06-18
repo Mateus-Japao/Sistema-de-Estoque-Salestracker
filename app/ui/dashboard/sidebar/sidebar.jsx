@@ -5,6 +5,7 @@ import {
   MdDashboard,
   MdSupervisedUserCircle,
   MdShoppingBag,
+  MdAddShoppingCart,
   MdShoppingCart,
   MdAnalytics,
   MdPeople,
@@ -45,7 +46,7 @@ const menuItems = [
       {
         title: "Products",
         path: "/dashboard/products",
-        icon: <MdShoppingBag />,
+        icon: <MdAddShoppingCart />,
       },
       {
         title: "Transactions",

@@ -6,6 +6,7 @@ import {
 } from "../../../lib/data";
 import Pagination from "../../ui/dashboard/pagination/pagination";
 import styles from "./transactions.module.css";
+import Image from "next/image";
 
 
 const Transactions = async ({ searchParams }) => {
@@ -18,6 +19,7 @@ const Transactions = async ({ searchParams }) => {
       <table className={styles.table}>
         <thead>
           <tr>
+            <td></td>
             <td>Name</td>
             <td>Category</td>
             <td>Status</td>
@@ -34,6 +36,14 @@ const Transactions = async ({ searchParams }) => {
             return (
               <tr key={transaction.id}>
                 {" "}
+                <td>  <Image
+                      src={product.imgUrl || "/noproduct.jpg"}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className={styles.productsImage}
+                    />
+                    </td>
                 <td>
                   <div className={styles.user}>{product.title}</div>
                 </td>

@@ -34,7 +34,7 @@ export const Sell = async ({ searchParams }) => {
                 <td>
                   <div className={styles.products}>
                     <Image
-                      src={product.img || "/noproduct.jpg"}
+                      src={product1.imgUrl || "/noproduct.jpg"}
                       alt=""
                       width={40}
                       height={40}
