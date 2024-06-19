@@ -11,14 +11,17 @@ const SingleUserPage = async ({ params }) => {
     <div className={styles.container}>
       <div className={styles.infoContainer}>
         <div className={styles.imgContainer}>
-          <Image src={user.img || "/noavatar.png"} alt="" fill />
+          <Image src={user.imgUrl || "/noavatar.png"} alt="" fill />
         </div>
         <div>{user.username}</div>
       </div>
       <div className={styles.formContainer}>
         <form action={updateUser} className={styles.form}>
           <input type="hidden" name="id" value={user.id} />
-          <label> Username</label>
+          <label htmlFor="img">Update image</label>
+          <input  type="file" id="img" name="img" />
+          <input  type="hidden" id="imgUrl" name="imgUrl" value={user.imgUrl}/>
+          <label> User name</label>
           <input type="text" name="username" placeholder={user.username} />
           <label> Email</label>
           <input type="email" name="email" placeholder={user.email} />

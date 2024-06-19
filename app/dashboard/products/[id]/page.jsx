@@ -21,6 +21,9 @@ const SingleProductsPage = async ({params}) => {
       <div className={styles.formContainer}>
         <form action={updateProduct} className={styles.form}>
           <input type="hidden" name="id" value={product.id} />
+          <label htmlFor="img">Update image</label>
+          <input  type="file" id="img" name="img" />
+          <input  type="hidden" id="imgUrl" name="imgUrl" value={product.imgUrl}/>
           <label>Change Nome</label>
           <input type="text" name="title" defaultValue={product.title} />
 
