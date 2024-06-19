@@ -36,8 +36,13 @@
     margin: 10px 0;
   }
   
-  .productCategory, .productQuantity, .productDescription {
-    font-size: 0.9em;
-    color: #555;
+  .productCategory, .productDescription {
+    font-size: 1em;
+    padding-block-end: 10px;
+    color: #e1e7e196;
+  }
+   .productQuantity, .productDescription {
+    font-size: 1em;
+    color: #fdfdfd;
   }
   

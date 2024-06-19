@@ -28,6 +28,11 @@ const menuItems = [
         icon: <MdDashboard />,
       },
       {
+        title: "Stock",
+        path: "/dashboard/stock",
+        icon: <MdAllInbox />,
+      },
+      {
         title: "Sell",
         path: "/dashboard/sell",
         icon: <MdMonetizationOn />,
@@ -38,24 +43,14 @@ const menuItems = [
         icon: <MdShoppingCart />,
       },
       {
-        title: "Users",
-        path: "/dashboard/users",
-        icon: <MdSupervisedUserCircle />,
-      },
-      {
-        title: "Products",
-        path: "/dashboard/products",
-        icon: <MdAddShoppingCart />,
-      },
-      {
         title: "Transactions",
         path: "/dashboard/transactions",
         icon: <MdSwapHorizontalCircle />,
       },
       {
-        title: "Stock",
-        path: "/dashboard/stock",
-        icon: <MdAllInbox />,
+        title: "Products",
+        path: "/dashboard/products",
+        icon: <MdAddShoppingCart />,
       },
       {
         title: "Category",
@@ -67,33 +62,38 @@ const menuItems = [
         path: "/dashboard/chart",
         icon: <MdAnalytics />,
       },
-    ],
-  },
-  {
-    title: "Analystics",
-    list: [
       {
-        title: "Teams",
-        path: "/dashboard/teams",
-        icon: <MdPeople />,
+        title: "Users",
+        path: "/dashboard/users",
+        icon: <MdSupervisedUserCircle />,
       },
     ],
   },
-  {
-    title: "User",
-    list: [
-      {
-        title: "Settings",
-        path: "/dashboard/settings",
-        icon: <MdOutlineSettings />,
-      },
-      {
-        title: "Help",
-        path: "/dashboard/help",
-        icon: <MdHelpCenter />,
-      },
-    ],
-  },
+  // {
+  //   title: "Analystics",
+  //   list: [
+  //     {
+  //       title: "Teams",
+  //       path: "/dashboard/teams",
+  //       icon: <MdPeople />,
+  //     },
+  //   ],
+  // },
+  // {
+  //   title: "User",
+  //   list: [
+  //     {
+  //       title: "Settings",
+  //       path: "/dashboard/settings",
+  //       icon: <MdOutlineSettings />,
+  //     },
+  //     {
+  //       title: "Help",
+  //       path: "/dashboard/help",
+  //       icon: <MdHelpCenter />,
+  //     },
+  //   ],
+  // },
 ];
 const Sidebar = async () => {
   const { user } = await auth();
@@ -103,7 +103,7 @@ const Sidebar = async () => {
       <div className={styles.user}>
         <Image
           className={styles.userImage}
-          src={user.imgUrl || "/noavatar.png"}
+          src={user.img || "/noavatar.png"}
           alt=""
           width="50"
           height="50"
