@@ -1,4 +1,4 @@
-import { allFetchTransac, allFetchTransacDashboard } from "../../../lib/data";
+import { allFetchTransacDashboard } from "../../../lib/data";
 import Chart from "./chartIcon";
 const ChartPage = async () => {
     const data = await allFetchTransacDashboard();
