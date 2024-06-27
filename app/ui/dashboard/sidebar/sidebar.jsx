@@ -7,9 +7,6 @@ import {
   MdAddShoppingCart,
   MdShoppingCart,
   MdAnalytics,
-  MdPeople,
-  MdOutlineSettings,
-  MdHelpCenter,
   MdLogout,
   MdAllInbox,
   MdLibraryBooks,
@@ -129,7 +126,7 @@ const Sidebar = async () => {
           await signOut();
         }}
       >
-        {" "}
+     
         <button className={styles.logout}>
           <MdLogout />
           Logout
