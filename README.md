@@ -13,7 +13,10 @@ pnpm dev
 # or
 bun dev
 ```
-![Alt text](/public/image.png)
+![Alt text](/public/Screenshot%202024-06-27%20133652.png)
+![Alt text](/public/Screenshot%202024-06-27%20133315.png)
+
+![Alt text](/public/Screenshot%202024-06-27%20134155.png)
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
