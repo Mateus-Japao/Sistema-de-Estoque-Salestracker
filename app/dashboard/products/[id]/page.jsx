@@ -28,7 +28,7 @@ const SingleProductsPage = async ({params}) => {
           <input type="text" name="title" defaultValue={product.title} />
 
           <select name="idCategory" required >
-          <option disabled>Change Category</option>
+          <option value={category.id} >{category.name}</option>
           {allCategory.category.map((categories) => (
             <option key={categories.id} id={categories.id} value={categories.id}>{categories.name}
               </option>

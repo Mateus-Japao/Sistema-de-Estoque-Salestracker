@@ -11,7 +11,7 @@ export const Products = async ({searchParams}) => {
     <form action={addProduct} className={Styles.form}>
       <input type="text" placeholder="title" name="title" required />
       <select name="category" required>
-          <option value="" disabled>Choose a Category</option>
+          <option value="" className={Styles.optionDisabled}>Choose a Category</option>
           {category.map((categories) => (
             <option key={categories.id} id={categories.id} value={categories.id}>{categories.name}
               </option>
