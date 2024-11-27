@@ -9,15 +9,17 @@ const Search = ({ placeholder }) => {
   const { replace } = useRouter();
   const pathname = usePathname();
 
+  // Função debounced para evitar múltiplas chamadas seguidas
   const handleSearch = useDebouncedCallback((e) => {
+    const query = e.target.value.trim(); // Remove espaços extras
     const params = new URLSearchParams(searchParams);
 
-    if (e.target.value) {
-      e.target.value.length > 2 && params.set("q", e.target.value);
+    if (query) {
+      params.set("q", query); // Define o valor da busca
     } else {
-      params.delete("q");
+      params.delete("q"); // Remove o parâmetro se estiver vazio
     }
-    replace(`${pathname}?${params}`);
+    replace(`${pathname}?${params.toString()}`); // Atualiza a URL
   }, 300);
 
   return (
@@ -27,9 +29,11 @@ const Search = ({ placeholder }) => {
         type="text"
         placeholder={placeholder}
         className={styles.input}
-        onChange={handleSearch}
+        defaultValue={searchParams.get("q") || ""} // Preserva o valor da busca no campo
+        onChange={handleSearch} // Chamado sempre que o usuário digita
       />
     </div>
   );
 };
+
 export default Search;

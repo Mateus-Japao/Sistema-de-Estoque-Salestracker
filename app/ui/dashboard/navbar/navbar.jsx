@@ -10,9 +10,21 @@ import {
 
 const Navbar = () => {
   const pathname = usePathname();
+ 
+  if (
+    pathname.includes("/buy") ||
+    pathname.includes("/sell") ||
+    pathname.includes("/chart") ||
+    pathname.includes("/category")||
+    pathname.includes("/stock") ||
+    pathname.includes("/products")||
+    pathname.includes("/users")
+  ) {
+    return null; // Não renderiza nada
+  }
   return (
     <div className={styles.container}>
-      <div className={styles.title}>{pathname.split("/").pop()}</div>
+      <div className={styles.title}></div>
       <div className={styles.menu}>
         <div className={styles.search}>
           <MdSearch />
